@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="application-name" content="StudyPortal Central">
+  <title>StudyPortal University - Central Authentication Service</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .portal-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 420px;
+      padding: 32px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .portal-card h1 {
+      font-size: 20px;
+      color: #1e3a8a;
+      margin: 0 0 6px 0;
+    }
+    .portal-card p {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    .auth-btn {
+      width: 100%;
+      background: #1e3a8a;
+      color: #ffffff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="portal-card">
+    <h1>StudyPortal University</h1>
+    <p>Central Authentication Service (CAS) Single Sign-On</p>
+
+    <form id="cas_login" method="POST" action="/cas/login">
+      <div class="form-group">
+        <label for="student_id">Student or Faculty ID</label>
+        <input type="text" id="student_id" name="username" class="form-control" autocomplete="username" placeholder="e.g. s9876543" required>
+      </div>
+
+      <div class="form-group">
+        <label for="student_pwd">Campus Password</label>
+        <input type="password" id="student_pwd" name="password" class="form-control" autocomplete="current-password" placeholder="Enter password" required>
+      </div>
+
+      <button type="submit" id="auth_btn" class="auth-btn">Authenticate</button>
+    </form>
+  </div>
+</body>
+</html>

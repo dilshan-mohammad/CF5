@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoginShield</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+        <div>
+          <h1 class="brand-title">LoginShield</h1>
+          <p class="brand-subtitle">Fake Login & DOM Shield</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="optionsBtn" class="icon-btn" title="Open Settings" aria-label="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Restricted Page Notice (Hidden by default) -->
+    <div id="restrictedNotice" class="restricted-notice hidden">
+      <svg class="notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <div>
+        <div class="notice-title">Restricted Browser Page</div>
+        <div class="notice-desc" id="restrictedMessage">This page cannot be scanned by LoginShield.</div>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main id="mainContent" class="main-content">
+      <!-- Status Card -->
+      <section id="statusCard" class="status-card status-unknown">
+        <div class="status-badge-container">
+          <span id="classificationBadge" class="status-badge">ANALYZING PAGE...</span>
+        </div>
+        <div class="page-meta" id="pageMetaDomain">Checking domain...</div>
+      </section>
+
+      <!-- Metrics Row -->
+      <section class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-label">Risk Score</div>
+          <div class="metric-value" id="riskScoreValue">--/100</div>
+          <div class="metric-bar-bg">
+            <div id="riskScoreBar" class="metric-bar-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Trusted Match</div>
+          <div class="metric-value" id="trustedMatchValue">--%</div>
+          <div class="metric-sub" id="trustedMatchName">No match</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Login Detected</div>
+          <div class="metric-value" id="loginDetectedValue">--</div>
+          <div class="metric-sub" id="loginConfidenceValue">Confidence --%</div>
+        </div>
+      </section>
+
+      <!-- Reason Breakdown -->
+      <section class="reasons-section">
+        <h2 class="section-heading">
+          <span>Security Assessment</span>
+          <span id="reasonCountBadge" class="count-pill">0</span>
+        </h2>
+        <div id="reasonsList" class="reasons-list">
+          <div class="empty-state">No security signals detected yet.</div>
+        </div>
+      </section>
+
+      <!-- Technical Analysis Accordion -->
+      <section class="tech-section">
+        <details id="techAccordion" class="tech-details">
+          <summary class="tech-summary">
+            <span>Technical Analysis</span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div class="tech-content">
+            <div class="tech-grid" id="techGrid">
+              <div class="tech-row"><span class="tech-key">Login Detected:</span><span id="tLogin" class="tech-val">--</span></div>
+              <div class="tech-row"><span class="tech-key">Protocol:</span><span id="tProto" class="tech-val">--</span></div>
+              <div class="tech-row"><span class="tech-key">Forms:</span><span id="tForms" class="tech-val">--</span></div>
+              <div class="tech-row"><span class="tech-key">Password Fields:</span><span id="tPass" class="tech-val">--</span></div>
+              <div class="tech-row"><span class="tech-key">Total Inputs:</span><span id="tInputs" class="tech-val">--</span></div>
+              <div class="tech-row"><span class="tech-key">Iframes:</span><span id="tIframes" class="tech-val">--</span></div>
+              <div class="tech-row"><span class="tech-key">External Scripts:</span><span id="tScripts" class="tech-val">--</span></div>
+              <div class="tech-row"><span class="tech-key">Cross-origin Form:</span><span id="tCross" class="tech-val">--</span></div>
+              <div class="tech-row"><span class="tech-key">Trusted Fingerprint:</span><span id="tTrustName" class="tech-val">--</span></div>
+              <div class="tech-row"><span class="tech-key">Fingerprint Similarity:</span><span id="tSim" class="tech-val">--</span></div>
+              <div class="tech-row"><span class="tech-key">Fingerprint Hash:</span><span id="tHash" class="tech-val">--</span></div>
+            </div>
+            <div class="privacy-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <span>100% Client-Side Privacy: Password values and user inputs are strictly never accessed, stored, or transmitted.</span>
+            </div>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <!-- Footer Controls -->
+    <footer class="app-footer">
+      <button id="scanPageBtn" class="btn primary-btn">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="23 4 23 10 17 10"/>
+          <polyline points="1 20 1 14 7 14"/>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+        </svg>
+        <span id="scanBtnText">Scan Page</span>
+      </button>
+    </footer>
+  </div>
+
+  <script src="../utils/constants.js"></script>
+  <script src="../utils/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

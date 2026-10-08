@@ -1,0 +1,19 @@
+{
+  "name": "loginshield",
+  "version": "1.0.0",
+  "description": "Client-side protection against suspicious and fake login pages using DOM fingerprint analysis.",
+  "main": "src/content/content.js",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "keywords": [
+    "chrome-extension",
+    "manifest-v3",
+    "phishing-detector",
+    "dom-fingerprinting",
+    "security",
+    "privacy-first"
+  ],
+  "author": "LoginShield Security Team",
+  "license": "MIT"
+}

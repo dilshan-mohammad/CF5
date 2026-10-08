@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure Online Banking Portal for DemoBank Customers">
+  <meta name="theme-color" content="#0369a1">
+  <title>DemoBank Online Banking - Secure Sign In</title>
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --bg: #f0f9ff;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .login-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.1);
+      width: 100%;
+      max-width: 400px;
+      padding: 32px;
+    }
+    .bank-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .bank-badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .bank-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 0;
+    }
+    .bank-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+      transition: border-color 0.15s;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .submit-btn {
+      width: 100%;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .submit-btn:hover {
+      background: var(--primary-dark);
+    }
+    .security-notice {
+      margin-top: 20px;
+      padding: 12px;
+      background: #f8fafc;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="bank-header">
+      <span class="bank-badge">VERIFIED BANKING PORTAL</span>
+      <h1 class="bank-title">DemoBank Online</h1>
+      <p class="bank-sub">Enter your online banking credentials</p>
+    </div>
+
+    <!-- Legitimate same-origin relative action -->
+    <form id="demobank_login_form" method="POST" action="/auth/login">
+      <div class="form-group">
+        <label for="user_101">Account Username</label>
+        <input 
+          type="text" 
+          id="user_101" 
+          name="username" 
+          class="form-control" 
+          autocomplete="username" 
+          placeholder="Enter username" 
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="pass_101">Password</label>
+        <input 
+          type="password" 
+          id="pass_101" 
+          name="password" 
+          class="form-control" 
+          autocomplete="current-password" 
+          placeholder="Enter secure password" 
+          required
+        >
+      </div>
+
+      <button type="submit" id="btn_login_submit" class="submit-btn">
+        Sign In to DemoBank
+      </button>
+    </form>
+
+    <div class="security-notice">
+      🔒 256-bit SSL Protected. DemoBank will never ask for your PIN via email.
+    </div>
+  </div>
+
+  <!-- Expected legitimate CDN script -->
+  <script src="https://cdn.demobank.example/auth-bundle.js"></script>
+</body>
+</html>

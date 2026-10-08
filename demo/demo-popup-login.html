@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopCentral - Modern Storefront with Modal Login</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --bg: #f8fafc;
+      --text: #0f172a;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 32px;
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .btn-login-nav {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .hero {
+      max-width: 800px;
+      margin: 80px auto;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 16px;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(2px);
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .login-modal-box {
+      background: #ffffff;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 380px;
+      padding: 28px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .modal-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+    }
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #64748b;
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    .btn-submit-modal {
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      padding: 11px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">ShopCentral</div>
+    <button id="openLoginBtn" class="btn-login-nav">Sign In</button>
+  </header>
+
+  <main class="hero">
+    <h1>Welcome to ShopCentral</h1>
+    <p>Discover hand-crafted goods. Click "Sign In" above or below to test dynamic modal login detection.</p>
+    <button id="openLoginBtnHero" class="btn-login-nav" style="padding: 12px 24px; font-size: 15px;">Open Login Modal</button>
+  </main>
+
+  <!-- Dynamic Modal Login Container (Without explicit form tag to test synthetic form analysis) -->
+  <div id="loginModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="login-modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Sign In to Your Account</h3>
+        <button id="closeModalBtn" class="close-btn">&times;</button>
+      </div>
+
+      <div class="form-group">
+        <label for="modal_user">Email or Username</label>
+        <input type="text" id="modal_user" name="username" class="form-control" autocomplete="username" placeholder="user@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="modal_pass">Password</label>
+        <input type="password" id="modal_pass" name="password" class="form-control" autocomplete="current-password" placeholder="••••••••" required>
+      </div>
+
+      <button id="modal_submit" type="button" class="btn-submit-modal">Sign In</button>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('loginModal');
+    const openBtn = document.getElementById('openLoginBtn');
+    const openHeroBtn = document.getElementById('openLoginBtnHero');
+    const closeBtn = document.getElementById('closeModalBtn');
+
+    function openModal() {
+      modal.classList.add('active');
+    }
+    function closeModal() {
+      modal.classList.remove('active');
+    }
+
+    openBtn.addEventListener('click', openModal);
+    openHeroBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  </script>
+</body>
+</html>

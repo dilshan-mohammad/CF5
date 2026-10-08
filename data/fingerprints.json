@@ -1,0 +1,400 @@
+[
+  {
+    "id": "instagram",
+    "name": "Instagram",
+    "domains": [
+      "instagram.com",
+      "www.instagram.com"
+    ],
+    "loginPathPatterns": [
+      "/accounts/login",
+      "/accounts/emailsignup",
+      "/"
+    ],
+    "expectedScriptOrigins": [
+      "https://www.instagram.com",
+      "https://static.cdninstagram.com",
+      "https://instagram.com"
+    ],
+    "fingerprint": {
+      "version": "1.0",
+      "protocol": "https:",
+      "formCount": 1,
+      "forms": [
+        {
+          "method": "POST",
+          "actionPath": "",
+          "isSameOrigin": true,
+          "isCrossOrigin": false,
+          "isKnownAuthProvider": false,
+          "inputTypes": ["password", "text"],
+          "inputCount": 2,
+          "hasPasswordField": true,
+          "hasUsernameField": true,
+          "buttonCount": 1
+        }
+      ],
+      "inputTypes": ["password", "text"],
+      "inputSequence": ["text", "password"],
+      "autocompleteTypes": ["current-password", "username"],
+      "idPatterns": [],
+      "scriptOrigins": [
+        "https://static.cdninstagram.com",
+        "https://www.instagram.com"
+      ],
+      "iframeCount": 0,
+      "hasCrossOriginIframe": false,
+      "metaKeys": [
+        "viewport"
+      ]
+    }
+  },
+  {
+    "id": "linkedin",
+    "name": "LinkedIn",
+    "domains": [
+      "linkedin.com",
+      "www.linkedin.com"
+    ],
+    "loginPathPatterns": [
+      "/login",
+      "/checkpoint/lg/login-submit",
+      "/uas/login",
+      "/"
+    ],
+    "expectedScriptOrigins": [
+      "https://www.linkedin.com",
+      "https://static.licdn.com",
+      "https://linkedin.com"
+    ],
+    "fingerprint": {
+      "version": "1.0",
+      "protocol": "https:",
+      "formCount": 1,
+      "forms": [
+        {
+          "method": "POST",
+          "actionPath": "/checkpoint/lg/login-submit",
+          "isSameOrigin": true,
+          "isCrossOrigin": false,
+          "isKnownAuthProvider": false,
+          "inputTypes": ["password", "submit", "text"],
+          "inputCount": 3,
+          "hasPasswordField": true,
+          "hasUsernameField": true,
+          "buttonCount": 1
+        }
+      ],
+      "inputTypes": ["password", "submit", "text"],
+      "inputSequence": ["text", "password", "submit"],
+      "autocompleteTypes": ["current-password", "username"],
+      "idPatterns": ["session_key", "session_password"],
+      "scriptOrigins": [
+        "https://static.licdn.com",
+        "https://www.linkedin.com"
+      ],
+      "iframeCount": 0,
+      "hasCrossOriginIframe": false,
+      "metaKeys": [
+        "viewport"
+      ]
+    }
+  },
+  {
+    "id": "google",
+    "name": "Google Accounts",
+    "domains": [
+      "accounts.google.com"
+    ],
+    "loginPathPatterns": [
+      "/signin",
+      "/v3/signin",
+      "/ServiceLogin"
+    ],
+    "expectedScriptOrigins": [
+      "https://accounts.google.com",
+      "https://ssl.gstatic.com",
+      "https://apis.google.com"
+    ],
+    "fingerprint": {
+      "version": "1.0",
+      "protocol": "https:",
+      "formCount": 1,
+      "forms": [
+        {
+          "method": "POST",
+          "actionPath": "/signin",
+          "isSameOrigin": true,
+          "isCrossOrigin": false,
+          "isKnownAuthProvider": true,
+          "inputTypes": ["email", "password", "text"],
+          "inputCount": 2,
+          "hasPasswordField": true,
+          "hasUsernameField": true,
+          "buttonCount": 2
+        }
+      ],
+      "inputTypes": ["email", "password", "text"],
+      "inputSequence": ["email", "password"],
+      "autocompleteTypes": ["current-password", "username"],
+      "idPatterns": ["identifierid"],
+      "scriptOrigins": [
+        "https://accounts.google.com",
+        "https://ssl.gstatic.com"
+      ],
+      "iframeCount": 0,
+      "hasCrossOriginIframe": false,
+      "metaKeys": [
+        "viewport"
+      ]
+    }
+  },
+  {
+    "id": "github",
+    "name": "GitHub",
+    "domains": [
+      "github.com"
+    ],
+    "loginPathPatterns": [
+      "/login",
+      "/session"
+    ],
+    "expectedScriptOrigins": [
+      "https://github.com",
+      "https://github.githubassets.com"
+    ],
+    "fingerprint": {
+      "version": "1.0",
+      "protocol": "https:",
+      "formCount": 1,
+      "forms": [
+        {
+          "method": "POST",
+          "actionPath": "/session",
+          "isSameOrigin": true,
+          "isCrossOrigin": false,
+          "isKnownAuthProvider": true,
+          "inputTypes": ["password", "submit", "text"],
+          "inputCount": 3,
+          "hasPasswordField": true,
+          "hasUsernameField": true,
+          "buttonCount": 1
+        }
+      ],
+      "inputTypes": ["password", "submit", "text"],
+      "inputSequence": ["text", "password", "submit"],
+      "autocompleteTypes": ["current-password", "username"],
+      "idPatterns": ["login_field", "password"],
+      "scriptOrigins": [
+        "https://github.com",
+        "https://github.githubassets.com"
+      ],
+      "iframeCount": 0,
+      "hasCrossOriginIframe": false,
+      "metaKeys": [
+        "viewport"
+      ]
+    }
+  },
+  {
+    "id": "demobank",
+    "name": "DemoBank Online Banking",
+    "domains": [
+      "demobank.example",
+      "bank.demobank.example"
+    ],
+    "loginPathPatterns": [
+      "/login",
+      "/signin",
+      "/auth/login",
+      "legit-demobank.html"
+    ],
+    "expectedScriptOrigins": [
+      "https://demobank.example",
+      "https://cdn.demobank.example"
+    ],
+    "fingerprint": {
+      "version": "1.0",
+      "protocol": "https:",
+      "formCount": 1,
+      "forms": [
+        {
+          "method": "POST",
+          "actionPath": "/auth/login",
+          "isSameOrigin": true,
+          "isCrossOrigin": false,
+          "isKnownAuthProvider": false,
+          "inputTypes": ["password", "submit", "text"],
+          "inputCount": 3,
+          "hasPasswordField": true,
+          "hasUsernameField": true,
+          "buttonCount": 1
+        }
+      ],
+      "inputTypes": ["password", "submit", "text"],
+      "inputSequence": ["text", "password", "submit"],
+      "autocompleteTypes": ["current-password", "username"],
+      "idPatterns": ["pass_{num}", "user_{num}"],
+      "scriptOrigins": [
+        "https://cdn.demobank.example",
+        "https://demobank.example"
+      ],
+      "iframeCount": 0,
+      "hasCrossOriginIframe": false,
+      "metaKeys": [
+        "description",
+        "theme-color",
+        "viewport"
+      ]
+    }
+  },
+  {
+    "id": "cloudmail",
+    "name": "CloudMail Secure Email",
+    "domains": [
+      "cloudmail.example",
+      "mail.cloudmail.example"
+    ],
+    "loginPathPatterns": [
+      "/login",
+      "/session/new",
+      "legit-cloudmail.html"
+    ],
+    "expectedScriptOrigins": [
+      "https://cloudmail.example",
+      "https://static.cloudmail.example"
+    ],
+    "fingerprint": {
+      "version": "1.0",
+      "protocol": "https:",
+      "formCount": 1,
+      "forms": [
+        {
+          "method": "POST",
+          "actionPath": "/session/new",
+          "isSameOrigin": true,
+          "isCrossOrigin": false,
+          "isKnownAuthProvider": false,
+          "inputTypes": ["checkbox", "email", "password", "submit"],
+          "inputCount": 4,
+          "hasPasswordField": true,
+          "hasUsernameField": true,
+          "buttonCount": 2
+        }
+      ],
+      "inputTypes": ["checkbox", "email", "password", "submit"],
+      "inputSequence": ["email", "password", "checkbox", "submit"],
+      "autocompleteTypes": ["current-password", "email"],
+      "idPatterns": ["mail_input", "mail_pass", "remember_me"],
+      "scriptOrigins": [
+        "https://cloudmail.example",
+        "https://static.cloudmail.example"
+      ],
+      "iframeCount": 0,
+      "hasCrossOriginIframe": false,
+      "metaKeys": [
+        "robots",
+        "theme-color",
+        "viewport"
+      ]
+    }
+  },
+  {
+    "id": "studyportal",
+    "name": "StudyPortal University",
+    "domains": [
+      "studyportal.example",
+      "portal.studyportal.example"
+    ],
+    "loginPathPatterns": [
+      "/login",
+      "/cas/login",
+      "/auth",
+      "legit-studyportal.html"
+    ],
+    "expectedScriptOrigins": [
+      "https://studyportal.example"
+    ],
+    "fingerprint": {
+      "version": "1.0",
+      "protocol": "https:",
+      "formCount": 1,
+      "forms": [
+        {
+          "method": "POST",
+          "actionPath": "/cas/login",
+          "isSameOrigin": true,
+          "isCrossOrigin": false,
+          "isKnownAuthProvider": false,
+          "inputTypes": ["password", "submit", "text"],
+          "inputCount": 3,
+          "hasPasswordField": true,
+          "hasUsernameField": true,
+          "buttonCount": 1
+        }
+      ],
+      "inputTypes": ["password", "submit", "text"],
+      "inputSequence": ["text", "password", "submit"],
+      "autocompleteTypes": ["current-password", "username"],
+      "idPatterns": ["student_id", "student_pwd"],
+      "scriptOrigins": [
+        "https://studyportal.example"
+      ],
+      "iframeCount": 0,
+      "hasCrossOriginIframe": false,
+      "metaKeys": [
+        "application-name",
+        "viewport"
+      ]
+    }
+  },
+  {
+    "id": "securepay",
+    "name": "SecurePay Gateway",
+    "domains": [
+      "securepay.example",
+      "checkout.securepay.example"
+    ],
+    "loginPathPatterns": [
+      "/login",
+      "/pay/auth"
+    ],
+    "expectedScriptOrigins": [
+      "https://js.securepay.example",
+      "https://securepay.example"
+    ],
+    "fingerprint": {
+      "version": "1.0",
+      "protocol": "https:",
+      "formCount": 1,
+      "forms": [
+        {
+          "method": "POST",
+          "actionPath": "/pay/auth",
+          "isSameOrigin": true,
+          "isCrossOrigin": false,
+          "isKnownAuthProvider": false,
+          "inputTypes": ["email", "password", "submit"],
+          "inputCount": 3,
+          "hasPasswordField": true,
+          "hasUsernameField": true,
+          "buttonCount": 1
+        }
+      ],
+      "inputTypes": ["email", "password", "submit"],
+      "inputSequence": ["email", "password", "submit"],
+      "autocompleteTypes": ["current-password", "email"],
+      "idPatterns": ["pay_email", "pay_pass"],
+      "scriptOrigins": [
+        "https://js.securepay.example",
+        "https://securepay.example"
+      ],
+      "iframeCount": 0,
+      "hasCrossOriginIframe": false,
+      "metaKeys": [
+        "format-detection",
+        "viewport"
+      ]
+    }
+  }
+]

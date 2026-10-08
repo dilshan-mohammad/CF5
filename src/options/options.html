@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoginShield Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-container">
+    <header class="options-header">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+        <div>
+          <h1>LoginShield Settings</h1>
+          <p>Client-Side DOM Fingerprinting & Phishing Detection Configuration</p>
+        </div>
+      </div>
+      <div class="version-tag">v1.0.0</div>
+    </header>
+
+    <!-- Privacy Banner -->
+    <div class="privacy-banner">
+      <svg class="privacy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+      <div>
+        <h3>Zero-Knowledge Client-Side Architecture</h3>
+        <p>LoginShield runs 100% locally in your browser. It strictly never reads <code>input.value</code>, passwords, or keystrokes, has zero remote telemetry, and transmits zero data across the network.</p>
+      </div>
+    </div>
+
+    <!-- General Settings -->
+    <section class="card">
+      <h2>Detection Preferences</h2>
+      
+      <div class="setting-item">
+        <div class="setting-info">
+          <label for="autoScan">Automatic Page Scanning</label>
+          <p>Automatically analyze pages and update security badges upon load and dynamic DOM mutations.</p>
+        </div>
+        <input type="checkbox" id="autoScan" class="toggle">
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <label for="strictMode">Strict Heuristics Mode</label>
+          <p>Treat unknown login pages and cross-origin forms with heightened sensitivity.</p>
+        </div>
+        <input type="checkbox" id="strictMode" class="toggle">
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <label for="debounceMs">SPA Mutation Debounce (ms)</label>
+          <p>Delay before rescanning after dynamic DOM mutations (recommended: 500ms - 1000ms).</p>
+        </div>
+        <input type="number" id="debounceMs" min="200" max="3000" step="50" class="num-input">
+      </div>
+    </section>
+
+    <!-- Trusted Fingerprints Section -->
+    <section class="card">
+      <div class="section-title-row">
+        <div>
+          <h2>Trusted Fingerprint Database</h2>
+          <p class="section-subtitle">Local database of verified legitimate authentication page structures.</p>
+        </div>
+        <button id="addCustomBtn" class="btn secondary-btn">+ Add Custom Site</button>
+      </div>
+
+      <div id="fingerprintsList" class="fingerprint-list">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Add Custom Fingerprint Modal -->
+    <div id="addModal" class="modal hidden">
+      <div class="modal-box">
+        <h3>Add Custom Trusted Service</h3>
+        <p class="modal-sub">Define a trusted domain and path pattern to match in local sessions.</p>
+        <div class="form-group">
+          <label for="customName">Service Name</label>
+          <input type="text" id="customName" placeholder="e.g., Internal Company SSO">
+        </div>
+        <div class="form-group">
+          <label for="customDomain">Primary Domain</label>
+          <input type="text" id="customDomain" placeholder="e.g., sso.corp.internal">
+        </div>
+        <div class="form-group">
+          <label for="customPath">Login Path Pattern</label>
+          <input type="text" id="customPath" placeholder="e.g., /auth/login">
+        </div>
+        <div class="modal-actions">
+          <button id="cancelModalBtn" class="btn text-btn">Cancel</button>
+          <button id="saveCustomBtn" class="btn primary-btn">Save Fingerprint</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo Pages Shortcut -->
+    <section class="card">
+      <h2>Interactive Demonstration Test Suite</h2>
+      <p class="section-subtitle">Test LoginShield directly against simulated legitimate and phishing scenarios.</p>
+      <div class="demo-grid">
+        <div class="demo-card legit">
+          <h4>Legitimate DemoBank</h4>
+          <p>Standard HTTPS bank portal matching trusted fingerprint.</p>
+          <a href="../../demo/legit-demobank.html" target="_blank" class="demo-link">Open DemoBank &rarr;</a>
+        </div>
+        <div class="demo-card phish">
+          <h4>Phishing: Cross-Origin Action</h4>
+          <p>Bank template submitting credentials to evil collector domain.</p>
+          <a href="../../demo/phish-demobank-cross-origin.html" target="_blank" class="demo-link">Open Attack Demo &rarr;</a>
+        </div>
+        <div class="demo-card phish">
+          <h4>Phishing: Rogue Iframe</h4>
+          <p>Authentication form nested inside hidden third-party frame.</p>
+          <a href="../../demo/phish-demobank-iframe.html" target="_blank" class="demo-link">Open Attack Demo &rarr;</a>
+        </div>
+        <div class="demo-card phish">
+          <h4>Phishing: Injected Script</h4>
+          <p>Bank page containing unauthorized external script origin.</p>
+          <a href="../../demo/phish-demobank-script.html" target="_blank" class="demo-link">Open Attack Demo &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Save Toast Notification -->
+    <div id="saveToast" class="save-toast hidden">Settings successfully saved.</div>
+  </div>
+
+  <script src="../utils/constants.js"></script>
+  <script src="../utils/storage.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
